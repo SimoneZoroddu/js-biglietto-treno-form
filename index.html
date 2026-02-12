@@ -1,20 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <title>Biglietto del Treno</title>
 </head>
+
 <body>
-    
+
     <main>
-        <div class="container">
-        <h1 class="">Calcola il Prezzo del tuo Biglietto</h1>
+        <h1 class="text-center text-white">Calcola il Prezzo del tuo Biglietto</h1>
+        <div class="container bg-white p-4">
+            <form action="">
+                <div class="row row-cols-3 text-center g-5">
+                    <div class="col">Nome Cognome <br> <input type="text"
+                            class="nameField m-2 text-center rounded border-warning" placeholder="Simone"></div>
+                    <div class="col">Km da percorrere <br> <input type="text"
+                            class="kmField m-2 text-center rounded border-warning" placeholder="10"></div>
+                    <div class="col">Fascia d'eta <br>
+                        <select name="Eta'" class="m-2 p-1 ps-5 pe-5 rounded border-warning">
+                            <option value="opt1">Minorenne</option>
+                            <option value="opt2">Maggiorenne</option>
+                            <option value="opt3">Over 65</option>
+                        </select>
+                    </div>
+                    <div class="col-6 text-end"><button
+                            class="calcTicket rounded border-secondary text-primary">Genera</button></div>
+                    <div class="col-6 text-start"><button
+                            class="clearAll rounded border-secondary text-danger">Annulla</button></div>
+                </div>
+            </form>
+        </div>
+        <h2 class="text-center text-white">Il Tuo Biglietto</h2>
+        <div class="container bg-white p-4">
+            <div class="row p-3">
+                <div class="col-12">
+                    <h3>Dettagli Passeggeri</h3>
+                </div>
+                <div class="col-4 fs-3 bg-secondary">Nome Passeggero <div class="nameTicket fs-5">Simone</div>
+                </div>
+                <div class="col-8 border border-end-0 border-secondary border-2">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Offerta</th>
+                                <th scope="col">Carrozza</th>
+                                <th scope="col">Codice CP</th>
+                                <th scope="col">Costo biglietto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tipologyTicket">Biglietto Standard</td>
+                                <td>5</td>
+                                <td>92911</td>
+                                <td class="priceTicket">10,54&euro;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </main>
 
     <script src="./main.js"></script>
 </body>
+
 </html>
