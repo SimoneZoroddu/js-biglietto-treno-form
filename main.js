@@ -22,9 +22,13 @@ nameFieldEl.value = 'Simone'
 console.log(nameFieldEl.value);
  */ // funziona
 const kmFieldEl = document.querySelector('.kmField')
-const opt1El = document.querySelector('.opt1')
-const opt2El = document.querySelector('.opt2')
-const opt3El = document.querySelector('.opt3')
+/* inutili perche quello che rimane nella barra e il valore su SELECT
+const opt1El = document.querySelector('.underage')
+const opt2El = document.querySelector('.adult')
+const opt3El = document.querySelector('.over_65')
+ */
+// questa classe e l unica che ci serve ed e quella che dice come l eta della persona
+const selectAgeEl = document.querySelector('.selectAge')
 //bottoni
 const calcTicketEl = document.querySelector('.calcTicket')
 const clearAllEl = document.querySelector('.clearAll')
@@ -32,3 +36,20 @@ const clearAllEl = document.querySelector('.clearAll')
 const nameTicketEl = document.querySelector('.nameTicket')
 const tipologyTicketEl = document.querySelector('.tipologyTicket')
 const priceTicketEl = document.querySelector('.priceTicket')
+
+const formEl = document.querySelector('form')
+// console.log(formEl);
+
+formEl.addEventListener('submit', function (e) {
+    e.preventDefault()
+    //prova
+    //console.log('nameFieldEl', nameFieldEl.value);
+    nameTicketEl.innerHTML = nameFieldEl.value
+    if (selectAgeEl.value == 'opt1') {
+        priceTicketEl.innerHTML = '4euro'
+    } else if (selectAgeEl.value == 'opt2') {
+        priceTicketEl.innerHTML = '12euro'
+    } else {
+        priceTicketEl.innerHTML = '8euro'
+    }
+})
