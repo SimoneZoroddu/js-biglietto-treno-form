@@ -14,12 +14,13 @@ console.log(inputKmEl.value, inputAgeEl.value, formEl.value);
 formEl.addEventListener('submit', function (e){
     e.preventDefault()
     const priceTicket = Number(inputKmEl.value) * 0.21
-
+    const underAgeSale = priceTicket * 0.8
+    const overAgeSale = priceTicket * 0.6
 
     if (Number(inputAgeEl.value) < 18) {
-        console.log(priceTicket * 0.8);
+        console.log(underAgeSale.toFixed(2));
     } else if (Number(inputAgeEl.value) >= 65) {
-        console.log(priceTicket * 0.6);
+        console.log(overAgeSale.toFixed(2));
     } else {
         console.log(priceTicket);
     }
