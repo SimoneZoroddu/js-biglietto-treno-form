@@ -63,6 +63,7 @@ formEl.addEventListener('submit', function (e) {
         tipologyTicketEl.innerHTML = 'Biglietto Ridotto, Minorenne'
         priceTicketEl.innerHTML = `${saleUnderAge.toFixed(2)}&euro;`
     } else if (selectAgeEl.value == 'opt2') {
+        tipologyTicketEl.innerHTML = 'Biglietto Standard'
         priceTicketEl.innerHTML = `${priceForKm.toFixed(2)}&euro;`
     } else {
         tipologyTicketEl.innerHTML = 'Biglietto Ridotto, Over 65'
