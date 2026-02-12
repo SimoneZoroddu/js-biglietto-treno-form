@@ -29,8 +29,9 @@ const opt3El = document.querySelector('.over_65')
  */
 // questa classe e l unica che ci serve ed e quella che dice come l eta della persona
 const selectAgeEl = document.querySelector('.selectAge')
-//bottoni
+// button che mandano i dati (probabilmente non serve modificarlo perche metti l input sul suo genitore FORM)
 const calcTicketEl = document.querySelector('.calcTicket')
+// dovrebbe bastare un refresh della pagina su questo button
 const clearAllEl = document.querySelector('.clearAll')
 //value di arrivo
 const nameTicketEl = document.querySelector('.nameTicket')
@@ -40,16 +41,36 @@ const priceTicketEl = document.querySelector('.priceTicket')
 const formEl = document.querySelector('form')
 // console.log(formEl);
 
+
+
+
 formEl.addEventListener('submit', function (e) {
     e.preventDefault()
     //prova
     //console.log('nameFieldEl', nameFieldEl.value);
     nameTicketEl.innerHTML = nameFieldEl.value
+    //controlliamo se si puo trasformare in numero i kilometri perche per ora e solo una stringa
+    //console.log(Number(kmFieldEl.value));
+    //console.log(typeof Number(kmFieldEl.value));
+    let priceForKm = Number(kmFieldEl.value) * 0.21
+    //prova
+    //console.log('priceForKm', priceForKm);
+    //creo 2 variabili per poter aggiungere .toFixed(2)
+    let saleUnderAge = priceForKm * 0.8
+    let saleOver = priceForKm * 0.6
+
     if (selectAgeEl.value == 'opt1') {
-        priceTicketEl.innerHTML = '4euro'
+        tipologyTicketEl.innerHTML = 'Biglietto Ridotto, Minorenne'
+        priceTicketEl.innerHTML = `${saleUnderAge.toFixed(2)}&euro;`
     } else if (selectAgeEl.value == 'opt2') {
-        priceTicketEl.innerHTML = '12euro'
+        priceTicketEl.innerHTML = `${priceForKm.toFixed(2)}&euro;`
     } else {
-        priceTicketEl.innerHTML = '8euro'
+        tipologyTicketEl.innerHTML = 'Biglietto Ridotto, Over 65'
+        priceTicketEl.innerHTML = `${saleOver.toFixed(2)}&euro;`
     }
+}
+)
+
+clearAllEl.addEventListener('click', function (e) {
+    location.reload()
 })
